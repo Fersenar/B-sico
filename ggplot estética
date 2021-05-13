@@ -1,0 +1,44 @@
+install.packages("tidyverse")
+library(tidyverse)
+#tidyverse 1.3.1
+#v tibble  3.1.0     v dplyr   1.0.5
+#v tidyr   1.1.3     v stringr 1.4.0
+#v readr   1.4.0     v forcats 0.5.1
+#v purrr   0.3.4 
+
+#Los coches con motor más grande consumen más combustible que los coches con motor más pequeño.
+#La relación consumo/tamaño es lineal? Es posi
+view(mpg)
+help(mpg) #?mpg
+#displ: tamaño del motor en litros
+#hwy: número de millas recorridas en autopista por galón de combustible
+
+ggplot(data=mpg) +   #hay que poner data= nombre del dataframe a utilizar
+  geom_point(mapping=aes(x=displ, y=hwy)) #la función geom_point sirve para tener una nube de puntos "o scaterplot"
+#el mapping define como las variables del dataset van a ser mapeadas a propiedades visuales.
+
+
+#color
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy, color=class))
+
+#color+tamaño
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy, size=class, color=class))
+
+#transparencia
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy, alpha=class))
+
+
+#forma de los puntos (solo puede utilizar 6 formas a la vez)
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy, shape=class,))
+
+#elección manual de estéticas (si pones lo del color fuera del paréntesis del aes te lo pinta todo)
+ggplot(data=mpg)+
+  geom_point(mapping=aes(x=displ, y=hwy),color="purple", size=4, shape=23, fill="yellow")
+#color= nombre del color en formato string (entre comillas)
+#size= tamaño del punto en mm (sin comillas)
+#Shape= forma del punto con números desde el 0 al 24
+#fill=color del relleno
