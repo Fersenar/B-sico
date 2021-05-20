@@ -2,5 +2,5 @@ ggplot(data=ensayo, aes(x = Time_of_stay_in_Catalonia, y = Phonetics, color = He
   geom_point(position="jitter") +
   geom_smooth(method='lm', se=F)+
   labs(x="Time of stay in catalonia", y = "Phonetics")+
-  scale_fill_manual(name="Heritage language program")+
-  theme_classic()
+  scale_color_discrete(name = "Heritage language instruction")+
+  theme_grey()
